@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ranjit Karambalkar - SQL + Power BI Analyst with 14+ years experience. Building diagnostic dashboards for sales, finance, banking, e-commerce, HR, and healthcare.">
+    <title>Ranjit Karambalkar | Power BI & SQL Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header/Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-style: italic;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .experience-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .highlight-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-card p {
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-btn:hover {
+            transform: translateX(5px);
+        }
+
+        /* Platforms Section */
+        .platforms {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .platform-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .platform-card:hover {
+            transform: scale(1.05);
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .platform-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .platform-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .platform-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">RK</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#platforms">Work With Me</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ranjit Karambalkar</h1>
+            <p class="subtitle">SQL + Power BI Analyst | 14+ Years Experience</p>
+            <p class="tagline">Client-Ready Insights Built for Action, Not Just Analysis</p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                <a href="#platforms" class="btn btn-secondary">Hire Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Transforming Data into Actionable Insights</h3>
+                <p>I'm a freelance SQL + Power BI Analyst with 14+ years of professional experience, including several years focused on data analysis, reporting automation, and business intelligence workflows.</p>
+                <p>I've worked with <strong>Infosys, Xoriant, and Cognizant</strong> in enterprise roles spanning analytics, process optimization, and technical delivery. My Power BI expertise has evolved through portfolio projects and productization efforts, where I build diagnostic dashboards across sales, finance, banking, e-commerce, HR, hospital, and trading domains.</p>
+                <p>My dashboards don't just show data—they explain it, diagnose issues, and guide decisions.</p>
+            </div>
+            <div class="experience-highlights">
+                <div class="highlight-card">
+                    <h3>14+</h3>
+                    <p>Years of Professional Experience</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>7</h3>
+                    <p>Domain Expertise Areas</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>3</h3>
+                    <p>Fortune 500 Companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <h2 class="section-title">Services I Offer</h2>
+        <p class="section-subtitle">Comprehensive data solutions tailored to your business needs</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Power BI Services</h3>
+                <ul>
+                    <li>Interactive dashboards & reports</li>
+                    <li>DAX calculations and KPI tracking</li>
+                    <li>Data modeling and Power Query</li>
+                    <li>Performance optimization</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🗄️</div>
+                <h3>SQL Data Analysis</h3>
+                <ul>
+                    <li>Complex query writing</li>
+                    <li>Stored procedures and data extraction</li>
+                    <li>Database reporting</li>
+                    <li>Query optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-subtitle">Cross-domain diagnostic dashboard suite built with simulated data to demonstrate business impact</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">Sales Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>Sales Performance Dashboard</h3>
+                    <p>Unified reporting showing total sales, order volume, win rates, and MoM growth. Helps teams surface early sales risks and align strategy.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image">Finance Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>Finance KPI Dashboard</h3>
+                    <p>KPI dashboard with cash flow, budget vs. actual, department spend, and profit margin. Includes forecasting logic and anomaly detection.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image">Banking Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>Banking Risk Analysis Dashboard</h3>
+                    <p>Diagnostic dashboard visualizing risk scorecards, early warning indicators, geographic exposure, and NPA classification for improved lending decisions.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image">E-commerce Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>E-commerce Sales Diagnostic</h3>
+                    <p>Customer journey analysis, product performance, payment trends, and regional breakdowns. Improves conversion and retention strategy.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image">HR Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>HR Performance Dashboard</h3>
+                    <p>Analyzing attrition by department, tenure, manager, and promotion timing. Includes early warning indicators for retention risks.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image">Hospital Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>Hospital Analytics Dashboard</h3>
+                    <p>Tracking admissions, discharges, occupancy rates, and departmental performance. Improves resource planning and patient experience.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image">Trading Dashboard Preview</div>
+                <div class="portfolio-content">
+                    <h3>Positional Trading Strategy Dashboard</h3>
+                    <p>Entry/exit signals, capital allocation, drawdown zones, and strategy performance. Visualizes strategy health and automates decision-making.</p>
+                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section id="platforms" class="section platforms">
+        <h2 class="section-title">Work With Me</h2>
+        <p class="section-subtitle">Choose your preferred platform - All platforms, one quality standard</p>
+        <div class="platforms-grid">
+            <div class="platform-card">
+                <div class="platform-icon">🟢</div>
+                <h3>Fiverr</h3>
+                <p>Quick projects & deliverables</p>
+                <a href="https://www.fiverr.com/users/ranjit_powerbi/" target="_blank" class="platform-link">View Profile</a>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🔵</div>
+                <h3>Upwork</h3>
+                <p>Complex projects & consulting</p>
+                <a href="https://www.upwork.com/freelancers/~011c138f58bb72bcd3" target="_blank" class="platform-link">View Profile</a>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🟣</div>
+                <h3>Contra</h3>
+                <p>Creative dashboard solutions</p>
+                <a href="https://contra.com/ranjit_karambalkar_d7wef8oz?r=ranjit_karambalkar_d7wef8oz" target="_blank" class="platform-link">View Profile</a>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <p>Professional networking</p>
+                <a href="https://www.linkedin.com/in/ranjit-karambalkar-895a8a2b/" target="_blank" class="platform-link">Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="contact-content">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">Ready to transform your data into actionable insights?</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:ranjit.karambalkar@gmail.com">ranjit.karambalkar@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="https://wa.me/919028068190">+91-9028068190</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://www.linkedin.com/in/ranjit-karambalkar-895a8a2b/" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Ranjit Karambalkar. All rights reserved.</p>
+        <p>Diagnostic Dashboards | SQL + Power BI Analytics | 14+ Years Experience</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.portfolio-item, .service-card, .platform-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
