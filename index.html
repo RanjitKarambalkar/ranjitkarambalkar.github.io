@@ -262,12 +262,16 @@
             height: 300px;
             overflow: hidden;
         }
-
-        .portfolio-thumbnail {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            .portfolio-thumbnail {
+            max-width: 95%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
             transition: transform 0.5s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .portfolio-item:hover .portfolio-thumbnail {
@@ -386,7 +390,7 @@
             text-align: center;
         }
 
-        .preview-btn {
+           .preview-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -409,6 +413,7 @@
         .preview-btn span {
             font-size: 1.3rem;
         }
+
 
         .platforms {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -679,7 +684,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/SalesDashboard.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/SalesDashboard.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
@@ -726,7 +731,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/FinanceKPI_Base.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/FinanceKPI_Base.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
@@ -773,7 +778,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/Bank_Loan_Dashboard_NPA.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/Bank_Loan_Dashboard_NPA.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
@@ -820,7 +825,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/ecommerce_sales_dashboard.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/ecommerce_sales_dashboard.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
@@ -867,7 +872,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/HR_Dashboard.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/HR_Dashboard.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
@@ -914,7 +919,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/Hospital_Analytics_Dashboard.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/Hospital_Analytics_Dashboard.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
@@ -961,7 +966,7 @@
                         </div>
                     </div>
                     <div class="portfolio-actions">
-                        <a href="pdfs/Positional Trading Strategy.pdf" target="_blank" class="preview-btn">
+                        <a href="pdfs/Positional Trading Strategy.pdf" target="_blank" rel="noopener noreferrer" class="preview-btn">
                             <span>👁️</span> View Dashboard PDF
                         </a>
                     </div>
