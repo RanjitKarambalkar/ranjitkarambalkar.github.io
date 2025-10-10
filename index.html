@@ -19,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Header/Navigation */
         .header {
             position: fixed;
             top: 0;
@@ -65,7 +64,6 @@
             color: #667eea;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -135,7 +133,6 @@
             color: #667eea;
         }
 
-        /* Section Styles */
         .section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -152,14 +149,13 @@
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
-            font-color: white;
+            color: #666;
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -200,7 +196,6 @@
             opacity: 0.9;
         }
 
-        /* Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -249,11 +244,9 @@
             font-weight: bold;
         }
 
-        /* Portfolio Section */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 4rem;
         }
 
         .portfolio-item {
@@ -261,58 +254,162 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
         }
 
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .portfolio-image {
+        .portfolio-image-container {
+            position: relative;
             width: 100%;
-            height: 250px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .portfolio-thumbnail {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .portfolio-image-placeholder {
+            display: none;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             color: white;
+        }
+
+        .portfolio-image-placeholder span {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-image-placeholder p {
             font-size: 1.2rem;
             font-weight: 600;
         }
 
-        .portfolio-content {
-            padding: 1.5rem;
+        .portfolio-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
 
-        .portfolio-content h3 {
-            color: #333;
+        .portfolio-header h3 {
+            font-size: 2rem;
             margin-bottom: 0.5rem;
         }
 
-        .portfolio-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
+        .portfolio-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
-        .portfolio-btn {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
+        .portfolio-details {
+            padding: 2rem;
+        }
+
+        .portfolio-section {
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-section h4 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .portfolio-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .portfolio-section ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .portfolio-section ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .feature-tag {
+            background: #f5f7fa;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+
+        .feature-tag strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .portfolio-actions {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f5f7fa;
+            text-align: center;
+        }
+
+        .preview-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .portfolio-btn:hover {
-            transform: translateX(5px);
+        .preview-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
         }
 
-        /* Platforms Section */
+        .preview-btn span {
+            font-size: 1.3rem;
+        }
+
         .platforms {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
@@ -369,7 +466,6 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
-        /* Contact Section */
         .contact {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -406,7 +502,6 @@
             opacity: 0.8;
         }
 
-        /* Footer */
         .footer {
             background: #1a1a1a;
             color: white;
@@ -414,7 +509,6 @@
             padding: 2rem;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -426,7 +520,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -444,18 +537,17 @@
                 grid-template-columns: 1fr;
             }
 
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
             .section {
                 padding: 3rem 1rem;
+            }
+
+            .key-features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="nav-container">
             <div class="logo">RK</div>
@@ -471,7 +563,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Ranjit Karambalkar</h1>
@@ -484,7 +575,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="section">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
@@ -503,15 +593,10 @@
                     <h3>7</h3>
                     <p>Domain Expertise Areas</p>
                 </div>
-               <!-- <div class="highlight-card">
-                    <h3>3</h3>
-                    <p>Fortune 500 Companies</p>
-                </div>-->
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="section">
         <h2 class="section-title">Services I Offer</h2>
         <p class="section-subtitle">Comprehensive data solutions tailored to your business needs</p>
@@ -539,77 +624,349 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="section">
         <h2 class="section-title">Portfolio</h2>
         <p class="section-subtitle">Cross-domain diagnostic dashboard suite built with simulated data to demonstrate business impact</p>
+        
         <div class="portfolio-grid">
+            <!-- Sales Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">Sales Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>Sales Performance Dashboard</h3>
-                    <p>Unified reporting showing total sales, order volume, win rates, and MoM growth. Helps teams surface early sales risks and align strategy.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/sales-thumbnail.jpg" alt="Sales Performance Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>📊</span>
+                        <p>Sales Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 Sales Performance Dashboard</h3>
+                    <span class="portfolio-badge">Sales Analytics</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Simulated mid-size sales team facing inconsistent reporting, Excel overload, and unclear pipeline metrics.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>A performance dashboard showing total sales, order volume, win rates, and MoM growth. Filters by region, product, and customer type.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>How unified reporting and fast-loading visuals can shorten meetings, align teams, and surface early sales risks.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Key Metrics</strong>
+                                Total sales, order volume, win rates
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Analysis</strong>
+                                MoM growth tracking
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Filtering</strong>
+                                By region, product, customer type
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/sales-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- Finance Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">Finance Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>Finance KPI Dashboard</h3>
-                    <p>KPI dashboard with cash flow, budget vs. actual, department spend, and profit margin. Includes forecasting logic and anomaly detection.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/finance-thumbnail.jpg" alt="Finance KPI Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>💰</span>
+                        <p>Finance Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 Finance KPI Dashboard</h3>
+                    <span class="portfolio-badge">Financial Analytics</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Simulated startup CFO juggling burn rate, budget tracking, and board prep manually.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>KPI dashboard with views for cash flow, budget vs. actual, department spend, and profit margin. Includes forecasting logic and anomaly detection.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>How finance teams can move from reactive spreadsheets to proactive insight, saving time and improving control.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Cash Flow</strong>
+                                Real-time monitoring
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Budget Analysis</strong>
+                                Actual vs. planned tracking
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Forecasting</strong>
+                                Predictive logic & anomaly detection
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/finance-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- Banking Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">Banking Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>Banking Risk Analysis Dashboard</h3>
-                    <p>Diagnostic dashboard visualizing risk scorecards, early warning indicators, geographic exposure, and NPA classification for improved lending decisions.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/banking-thumbnail.jpg" alt="Banking Risk Analysis Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>🏦</span>
+                        <p>Banking Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 Banking Risk Analysis Dashboard</h3>
+                    <span class="portfolio-badge">Banking & Risk</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Regional banks struggle with fragmented loan data, delayed risk signals, and rising regulatory pressure—making it hard to monitor NPAs and ensure compliance.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>Built a diagnostic Power BI dashboard using simulated loan data to visualize risk scorecards, early warning indicators, geographic exposure, and NPA classification. Includes dynamic filters and predictive logic for early intervention.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>Improved lending decisions, reduced NPA accumulation, and enhanced regulatory readiness through consolidated views and proactive alerts.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Risk Monitoring</strong>
+                                Early warning indicators
+                            </div>
+                            <div class="feature-tag">
+                                <strong>NPA Tracking</strong>
+                                Classification & trends
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Geographic Analysis</strong>
+                                Exposure by region
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/banking-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- E-commerce Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">E-commerce Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>E-commerce Sales Diagnostic</h3>
-                    <p>Customer journey analysis, product performance, payment trends, and regional breakdowns. Improves conversion and retention strategy.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/ecommerce-thumbnail.jpg" alt="E-commerce Sales Diagnostic Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>🛒</span>
+                        <p>E-commerce Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 E-commerce Sales Diagnostic Dashboard</h3>
+                    <span class="portfolio-badge">E-commerce</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Simulated online retailer with high cart abandonment and unclear repeat purchase behavior.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>Diagnostic dashboard showing customer journey, product performance, payment method trends, and regional breakdowns.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>How behavioral insights and cohort analysis can improve conversion, retention, and channel strategy.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Customer Journey</strong>
+                                Path to purchase analysis
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Product Performance</strong>
+                                Top sellers & trends
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Cohort Analysis</strong>
+                                Retention & repeat purchase
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/ecommerce-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- HR Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">HR Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>HR Performance Dashboard</h3>
-                    <p>Analyzing attrition by department, tenure, manager, and promotion timing. Includes early warning indicators for retention risks.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/hr-thumbnail.jpg" alt="HR Performance Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>👥</span>
+                        <p>HR Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 HR Performance Dashboard</h3>
+                    <span class="portfolio-badge">Human Resources</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Simulated tech company with rising attrition and vague exit feedback.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>Dashboard analyzing attrition by department, tenure, manager, and promotion timing. Includes early warning indicators.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>How HR teams can identify retention risks and redesign career paths using performance-linked data.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Attrition Analysis</strong>
+                                By dept, tenure, manager
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Early Warnings</strong>
+                                Retention risk indicators
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Career Paths</strong>
+                                Promotion timing analysis
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/hr-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- Hospital Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">Hospital Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>Hospital Analytics Dashboard</h3>
-                    <p>Tracking admissions, discharges, occupancy rates, and departmental performance. Improves resource planning and patient experience.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/hospital-thumbnail.jpg" alt="Hospital Analytics Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>🏥</span>
+                        <p>Hospital Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 Hospital Analytics Dashboard</h3>
+                    <span class="portfolio-badge">Healthcare</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Simulated multi-specialty hospital facing delays in discharge, bed turnover, and resource allocation.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>Dashboard tracking admissions, discharges, occupancy rates, and departmental performance. Includes alerts for bottlenecks and patient flow disruptions.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>How operational metrics can improve resource planning, reduce wait times, and enhance patient experience.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Patient Flow</strong>
+                                Admissions & discharges
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Occupancy</strong>
+                                Bed utilization rates
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Bottleneck Alerts</strong>
+                                Real-time notifications
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/hospital-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- Trading Dashboard -->
             <div class="portfolio-item">
-                <div class="portfolio-image">Trading Dashboard Preview</div>
-                <div class="portfolio-content">
-                    <h3>Positional Trading Strategy Dashboard</h3>
-                    <p>Entry/exit signals, capital allocation, drawdown zones, and strategy performance. Visualizes strategy health and automates decision-making.</p>
-                    <a href="https://succulent-chicory-3ce.notion.site/Portfolio-Power-BI-SQL-Dashboards-23baa5f5cfab800f9800ce702c634a3a" target="_blank" class="portfolio-btn">View Details →</a>
+                <div class="portfolio-image-container">
+                    <img src="images/trading-thumbnail.jpg" alt="Positional Trading Strategy Dashboard" class="portfolio-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-image-placeholder">
+                        <span>📈</span>
+                        <p>Trading Dashboard Preview</p>
+                    </div>
+                </div>
+                <div class="portfolio-header">
+                    <h3>🔽 Positional Trading Strategy Dashboard</h3>
+                    <span class="portfolio-badge">Trading & Finance</span>
+                </div>
+                <div class="portfolio-details">
+                    <div class="portfolio-section">
+                        <h4>📋 Scenario</h4>
+                        <p>Simulated trading setup focused on rotational capital logic and multi-asset strategy evaluation.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>🎯 What I Built</h4>
+                        <p>Dashboard showing entry/exit signals, capital allocation, drawdown zones, and strategy performance across timeframes.</p>
+                    </div>
+                    <div class="portfolio-section">
+                        <h4>💡 What It Demonstrates</h4>
+                        <p>How traders can visualize strategy health, protect capital, and automate decision-making with diagnostic clarity.</p>
+                        <div class="key-features">
+                            <div class="feature-tag">
+                                <strong>Entry/Exit Signals</strong>
+                                Automated triggers
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Capital Allocation</strong>
+                                Risk-based distribution
+                            </div>
+                            <div class="feature-tag">
+                                <strong>Performance Tracking</strong>
+                                Multi-timeframe analysis
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="pdfs/trading-dashboard.pdf" target="_blank" class="preview-btn">
+                            <span>👁️</span> View Dashboard PDF
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platforms Section -->
     <section id="platforms" class="section platforms">
         <h2 class="section-title">Work With Me</h2>
         <p class="section-subtitle">Choose your preferred platform - All platforms, one quality standard</p>
@@ -641,7 +998,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="contact-content">
             <h2 class="section-title">Let's Work Together</h2>
@@ -663,14 +1019,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 Ranjit Karambalkar. All rights reserved.</p>
         <p>Diagnostic Dashboards | SQL + Power BI Analytics | 14+ Years Experience</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -684,7 +1038,6 @@
             });
         });
 
-        // Add scroll animation for sections
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
